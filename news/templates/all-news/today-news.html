@@ -1,6 +1,20 @@
 {%extends 'all-news/base.html'%}
+{% load bootstrap3 %}
 {% block content %} 
 {{ block.super}}
+
+<!-- Looping through news end   -->
+<div class="container-fluid">
+
+  <form  action="{%url 'newsToday'%}" method="post">
+    {%csrf_token%}
+
+    {% bootstrap_form letterForm%}
+    <input type="submit" value="Subscribe">
+  </form>
+
+</div>
+{% bootstrap_css %}
 
 <div class="container">
 
@@ -21,6 +35,8 @@
       
 
   </div>
+
+
 
   {% empty %}
   <div class="row">

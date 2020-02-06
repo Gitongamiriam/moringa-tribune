@@ -13,13 +13,17 @@
    </div>
 
    <div class="row">
-     <p>{{article.post}}</p>
+     {% autoescape on %}
+     {{article.post| safe}}
+    {% endautoescape %}
+
    </div>
 
    <div class="row">
      <p>Posted {{article.pub_date|timesince}} by {{article.editor.first_name}}</p>
    </div>
 
- </div>
+  </div>
 
- {% endblock %}
+  {% endblock %}
+
